@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #2979c9;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+
+        }
+
+        .card {
+            border: 1px solid #2a3138;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #c96868;
+        }
+
+        .card-header {
+            background-color: aqua;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            padding: 15px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        label {
+            font-family: 'Times New Roman', Times, serif;
+            margin-bottom: 5px;
+            display: block;
+            font-size: 14px;
+
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #4c7399;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: rgb(156,220,156);
+            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+            border-radius: 5px;
+            cursor: pointer;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2>BMI Calculator</h2>
+            </div>
+            <div class="card-body">
+                <form method="post" action="{% url 'calculate_bmi' %}" >
+                    {% csrf_token %}
+                    <label for="weight">Weight (kg):</label>
+                    <input type="number" class="form-control" name="weight" required step="0.01">
+                    <label for="height">Height (M):</label>
+                    <input type="number" class="form-control" name="height" required step="0.01">
+                    <button type="submit">calculate BMI</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
